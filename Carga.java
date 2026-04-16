@@ -1,16 +1,16 @@
 public class Carga extends Vagao {
-    private float carga;
+    private double carga;
 
     public Carga(float comprimento, float peso) {
-        super(comprimento, peso); //metodo construtor herdado da classe Vagao
+        super(comprimento, peso);
+        this.carga = peso * 0.75; // carga é 75% do peso
     }
 
-    public float getCapacidadeCarga() {
+    public double getCapacidadeCarga() {
         return carga;
     }
 
-    public void setCarga(float carga) {
-        carga=peso*0.75 //carga é 75% do peso
+    public void setCarga(double carga) {
         this.carga = carga;
     }
 
