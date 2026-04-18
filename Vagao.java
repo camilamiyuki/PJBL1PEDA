@@ -23,9 +23,9 @@ public class Vagao{
         this.peso = peso;
     }
 
-    //public void print(){
-    //    System.out.println("Comprimento: " + comprimento);
-    //    System.out.println("Peso: " + peso);
-    //}
+    public void print(){
+        System.out.println("Comprimento: " + comprimento);
+        System.out.println("Peso: " + peso);
+    }
 
 }

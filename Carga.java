@@ -6,7 +6,7 @@ public class Carga extends Vagao {
         this.carga = peso * 0.75; // carga é 75% do peso
     }
 
-    public double getCapacidadeCarga() {
+    public double getCarga() {
         return carga;
     }
 
@@ -15,8 +15,8 @@ public class Carga extends Vagao {
     }
 
     @Override
-    //public void print(){
-    //    super.print();
-    //    System.out.println("Capacidade de Carga: " + capacidadeCarga);
-    //}
+    public void print(){
+        super.print();
+        System.out.println("Capacidade de Carga: " + carga);
+    }
 }

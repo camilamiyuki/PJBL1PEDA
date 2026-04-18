@@ -15,8 +15,8 @@ public class Locomotiva extends Vagao {
     }
     
     @Override
-    //public void print(){
-    //    super.print();
-    //    System.out.println("Potência: " + potencia);
-    //}
+    public void print(){
+        super.print();
+        System.out.println("Potência: " + potencia);
+    }
 }

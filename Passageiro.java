@@ -15,8 +15,8 @@ public class Passageiro extends Vagao {
     }
 
     @Override
-    //public void print(){
-    //    super.print();
-    //    System.out.println("Número de Passageiros: " + numeroPassageiros);
-    //}
+    public void print(){
+        super.print();
+        System.out.println("Número de Passageiros: " + numeroPassageiros);
+    }
 }
