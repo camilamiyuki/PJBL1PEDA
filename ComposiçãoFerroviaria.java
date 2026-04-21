@@ -105,13 +105,26 @@ public class ComposiçãoFerroviaria extends Deque implements Serializable{
         return total;
     }
 
+    public double calcularComprimentoTotal() {
+        if (getSize() == 0) return 0;
+
+        double total = 0;
+        rewind();
+        for (int i = 0; i < getSize(); i++) {
+            Vagao v = (Vagao) next();
+            total += v.getComprimento();
+        }
+        total += (getSize() - 1) * 2;
+        return total;
+    }
+
     public int calcularTotalPassageiros() {
         int total = 0;
-        rewind();
+         rewind();
         for (int i = 0; i < getSize(); i++) {
             Object obj = next();
             if (obj instanceof Passageiro) {
-                total += ((Passageiro) obj).getNumeroPassageiros();
+                total += ((Passageiro) obj).getNumPassageiros();
             }
         }
         return total;
@@ -125,13 +138,45 @@ public class ComposiçãoFerroviaria extends Deque implements Serializable{
             if (obj instanceof Carga) {
                 total += ((Carga) obj).getCarga();
             }
+     }
+        return total;
+    }
+
+    public double calcularPotenciaTotal() {
+        double total = 0;
+        rewind();
+        for (int i = 0; i < getSize(); i++) {
+            Object obj = next();
+            if (obj instanceof Locomotiva) {
+                total += ((Locomotiva) obj).getPotencia();
+            }
         }
         return total;
     }
 
+    public Vagao getPrimeiroVagao() {
+        return (Vagao) peekFront();
+    }
 
+    public Vagao getUltimoVagao() {
+        return (Vagao) peekRear();
+    }
 
+    public boolean verificarPotencia() {
+    return calcularPotenciaTotal() >= calcularPesoTotal()*1.05;
+}
 
-
+    public void diagnostico() {
+        System.out.println("===== DIAGNOSTICO =====");
+        System.out.println("Total de vagoes: " + getSize());
+        System.out.println("Locomotivas: " + contarLocomotivas());
+        System.out.println("Vagoes de passageiros: " + contarVagoesPassageiro());
+        System.out.println("Vagoes de carga: " + contarVagoesCarga());
+        System.out.println("Comprimento total: " + calcularComprimentoTotal());
+        System.out.println("Peso total: " + calcularPesoTotal());
+        System.out.println("Passageiros totais: " + calcularTotalPassageiros());
+        System.out.println("Carga total: " + calcularCargaTotal());
+        System.out.println("Potencia total: " + calcularPotenciaTotal());
+        }
 
 }
